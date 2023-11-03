@@ -9,7 +9,7 @@ function TodoForm() {
     e.preventDefault();
     const trimedTodoText = todoText.trim();
     if(!trimedTodoText) return;
-    addToDo({text:trimedTodoText,completed:false,priority:false});
+    addToDo({text:trimedTodoText,completed:false,priority:"low"});
     setTodoText("");
    }
 

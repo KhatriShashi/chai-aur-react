@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTodo } from '../context/TodoContext';
 
-function TodoItem({ todo }) {
+function TodoItem({ todo}) {
     const [isTodoEditable, setIsTodoEditable] = useState(false);
     const [todoMsg, setTodoMsg] = useState(todo.text)
     const { updateToDo, removeToDo, markToDo } = useTodo();
@@ -14,7 +14,9 @@ function TodoItem({ todo }) {
         setIsTodoEditable(false);
     }
     const editPriority = () => {
+        console.log(todo.priority);
         let newPriority=todo.priority==="low" ? "high" : "low";
+        console.log(newPriority);
         const updatedTodo = {
           ...todo,
           id: Date.now(),
@@ -53,14 +55,9 @@ function TodoItem({ todo }) {
                 onClick={() => {
                     if (todo.completed) return;
                     editPriority();
-                    // if(!isPriority){
-                    //     editPriority();
-                    // }else{
-                    //     setIsPriority((prev)=>!prev);
-                    // }
                 }}
             >
-                {todo.priority==="high" ? "🟡" : "⚪"}
+                {todo.priority==="high" ? <i class="ri-star-fill text-yellow-200 text-lg"></i> : <i class="ri-star-line text-lg"></i>}
             </button>
             {/* Edit, Save Button */}
             <button

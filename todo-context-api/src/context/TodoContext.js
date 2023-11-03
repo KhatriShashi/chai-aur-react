@@ -12,7 +12,6 @@ export const todoContext = createContext({
     updateToDo:(id,todo) =>{},
     removeToDo:(id)=>{},
     markToDo:(id)=>{},
-    markPriority:(id,todo)=>{},
 })
 
 export const TodoContextProvider = todoContext.Provider;
